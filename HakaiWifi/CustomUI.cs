@@ -18,10 +18,7 @@ namespace HakaiWifi
 
             TypeWrite("(Don't let this line enter new row or split into 2 line)", "yellow");
 
-            Console.WriteLine();
-            TypeWrite("Press any key to continue!", "green");
-
-            Console.ReadKey(true);
+            WaitForUser();
         }
 
         public static void WarningResponsibility()
@@ -61,10 +58,8 @@ namespace HakaiWifi
             Console.WriteLine();
             TypeWrite("      their actions and decisions when using the tool.", "yellow");
             Console.WriteLine();
-            Console.WriteLine();
-            TypeWrite("Press any key to continue!", "green");
 
-            Console.ReadKey(true);
+            WaitForUser();
         }
 
         public static void Trolling()
@@ -162,9 +157,7 @@ namespace HakaiWifi
             WriteLineColor("  THERE ARE NO VIRUS, SO JUST RELAX", "green");
             Thread.Sleep(3000);
 
-            TypeWrite("Press any key to exit!", "green", 30);
-
-            Console.ReadKey(true);
+            WaitForUser();
         }
 
         public static void LogoTitle()
@@ -191,6 +184,9 @@ namespace HakaiWifi
             AnsiConsole.Markup("[green]                                                                                        created by [/]");
             AnsiConsole.Markup("[bold Fuchsia]JP Dev[/]");
         }
+
+
+        // ---------- HELPER METHODS ----------
         public static void TypeWrite(string text, string color, int delayMilliseconds = 15)
         {
             foreach (char c in text)
@@ -209,6 +205,17 @@ namespace HakaiWifi
         public static void WriteLineColor(string text, string color)
         {
             AnsiConsole.MarkupLine($"[{color}]{text}[/]");
+        }
+
+        /// <summary>
+        /// Help pause the screen before next command running
+        /// </summary>
+        public static void WaitForUser()
+        {
+            Console.WriteLine();
+            AnsiConsole.MarkupLine("[green]Press any key to continue...[/]");
+            Console.ReadKey(true);
+            Console.Clear();
         }
     }
 }

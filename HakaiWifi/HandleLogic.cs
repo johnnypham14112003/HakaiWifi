@@ -56,8 +56,9 @@ namespace HakaiWifi
         // ---------- METHOD HANDLE LOGIC ----------
         private static void ConfigDriver()
         {
+            Console.Clear();
             AnsiConsole.Status()
-                .Start("Detecting WiFi-Driver...", ctx =>
+                .Start("Scanning WiFi Interfaces...", ctx =>
                 {
                     Thread.Sleep(1000);
                 });
@@ -314,7 +315,7 @@ namespace HakaiWifi
         }
         private static string FormatValue(string value)
         {
-            return value == "not_defined" ? "[grey]Not Defined[/]" : $"[white]{value}[/]";
+            return value == "Not Defined" ? "[grey]Not Defined[/]" : $"[white]{value}[/]";
         }
 
         /// <summary>
